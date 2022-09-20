@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  # [CHANGE]: Change to match .devcontainer/devcontainer.json
+  template:
+    env_file: .env
+    build:
+      context: .
+      dockerfile: dev.dockerfile
+    tty: true
+    volumes:
+      - './app:/app'
+    network_mode: host
+    environment:
+      - CHOKIDAR_USEPOLLING=true
